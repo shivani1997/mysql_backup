@@ -1,0 +1,22 @@
+Back up From the Command Line (using mysqldump)
+
+If you have shell or telnet access to your web server, you can backup your MySQL data by using the mysqldump command.
+This command connects to the MySQL server and creates an SQL dump file.
+The dump file contains the SQL statements necessary to re-create the database.
+Here is the proper syntax:
+$ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
+
+    [uname] Your database username
+    [pass] The password for your database (note there is no space between -p and the password)
+    [dbname] The name of your database
+    [backupfile.sql] The filename for your database backup
+    [--opt] The mysqldump option 
+
+For example, to backup a database named 'Tutorials' with the username 'root' and with no password to a file tut_backup.sql,
+you should accomplish this command:
+$ mysqldump -u root -p Tutorials > tut_backup.sql
+his command will backup the 'Tutorials' database into a file called tut_backup.sql which 
+will contain all the SQL statements needed to re-create the database
+With mysqldump command you can specify certain tables of your database you want to backup. 
+For example, to back up only php_tutorials and asp_tutorials tables from the 'Tutorials' database accomplish the command below.
+Each table name has to be separated by space.
